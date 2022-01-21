@@ -38,5 +38,7 @@ public class SpringConfig {
 //        return new JpaMemberRepository();
 //
 //    }
+
+    //test
 }
 
