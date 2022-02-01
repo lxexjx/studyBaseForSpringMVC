@@ -24,24 +24,31 @@ public class SpringConfig {
 //        this.memberRepository=memberRepository;
 //    }
 
-    private EntityManager em;
-    @Autowired
-    public SpringConfig(EntityManager em){
-        this.em=em;
+//    private EntityManager em;
+//    @Autowired
+//    public SpringConfig(EntityManager em){
+//        this.em=em;
+//    }
+
+    //    @Autowired 생성자 하나면 생략가능
+    private final MemberRepository memberRepository;    //springJPA가 만든 구현체가 등록됨
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
 
     //springBean에 등록할거임
     @Bean
     public MemberService memberService() {
-        return new MemberService(memberRepository());   //springbean에 등록돼있는 memberRepository를 memberService에 넣어줘
+        //return new MemberService(memberRepository());   //springbean에 등록돼있는 memberRepository를 memberService에 넣어줘
+        return new MemberService(memberRepository);
     }
-    @Bean
-    public MemberRepository memberRepository() {
+//    @Bean
+//    public MemberRepository memberRepository() {
         //return new MemoryMemberRepository();
         //return new JdbcMemberRepository(dataSource);
         //return new JdbcTemplateMemberRepository(dataSource); ->JDBCTemplateMemberRepository
-        return new JpaMemberRepository();
+        //return new JpaMemberRepository(em);
 
-    }
+//    }
 }
 
