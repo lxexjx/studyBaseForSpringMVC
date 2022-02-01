@@ -11,7 +11,7 @@ import java.util.*;
 import java.util.Optional;
 //Service: 리포지터리와 도메인 활용해서 비지니스 로직을 작성
 //@Service spring이 올라올때 spring이 MemberService를 등록해줘
-@Transitional
+@Transitional   //jpa사용시 @Transitional필수
 public class MemberService {
     private final MemberRepository memberRepository;
 

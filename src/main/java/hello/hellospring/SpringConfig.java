@@ -12,23 +12,23 @@ import javax.sql.DataSource;
 /*자바코드로 직접 스프링 빈 등록하는 방법*/
 @Configuration
 public class SpringConfig {
-    private final DataSource dataSource;
-
-    @Autowired
-    public SpringConfig(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
-
-//    private EntityManager em;
+//    private final DataSource dataSource;
 //    @Autowired
-//    public SpringConfig(EntityManager em){
-//        this.em=em;
+//    public SpringConfig(DataSource dataSource) {
+//        this.dataSource = dataSource;
 //    }
+
 //    @Autowired
 //    private final MemberRepository memberRepository;
 //    public SpringConfig(MemberRepository memberRepository){
 //        this.memberRepository=memberRepository;
 //    }
+
+    private EntityManager em;
+    @Autowired
+    public SpringConfig(EntityManager em){
+        this.em=em;
+    }
 
     //springBean에 등록할거임
     @Bean
@@ -40,7 +40,7 @@ public class SpringConfig {
         //return new MemoryMemberRepository();
         //return new JdbcMemberRepository(dataSource);
         //return new JdbcTemplateMemberRepository(dataSource); ->JDBCTemplateMemberRepository
-        //return new JpaMemberRepository();
+        return new JpaMemberRepository();
 
     }
 }
