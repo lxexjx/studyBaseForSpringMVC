@@ -15,7 +15,7 @@ import java.util.Optional;
 public class MemberService {
     private final MemberRepository memberRepository;
 
-    @Autowired  //controller와 service를 연결
+    //@Autowired  //controller와 service를 연결
     /*의존관계 주입: MemberService가 생성될 때 생성자를 호출하는데
     Autowired가 있으면 memberRepository가 필요하니까 spring container에 있는 Memory memberRepository를넣어줘
     MemberService객체를 가져다가 등록시켜줘
