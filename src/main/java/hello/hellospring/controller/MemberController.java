@@ -9,12 +9,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+//컨트롤러가 서비스를 통해서 회원가입을 하고 조회를 할 수 있어야됨(컨트롤러가 서비스를 의존한다!)
 
-@Controller
+
+@Controller     //spring컨테이너가 MemberController객체를 생성해서 스프링에 넣어놓고 관리해
 public class MemberController {
     private final MemberService memberService;
-    @Autowired
-    public MemberController(MemberService memberService){
+
+    //spring컨테이너가 뜰때 생성자를 호출하는데
+    @Autowired   //sprig의 memberService가져다가 연결시켜줘
+     /*의존관계 주입: MemberController가 생성될 때  spring Bean에 등록돼 있는
+    MemberService객체를 가져다가 등록시켜줘
+    * */
+   public MemberController(MemberService memberService){
         this.memberService = memberService;
     }
 

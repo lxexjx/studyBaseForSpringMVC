@@ -3,8 +3,7 @@ package hello.hellospring.domain;
 @Entity
 public class Member {
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
-
+    private Long id;    //시스템이 저장하는 id
     //@Column(name="username")
     private String name;
     public Long getId() {

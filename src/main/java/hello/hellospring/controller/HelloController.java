@@ -25,12 +25,15 @@ public class HelloController {
             return "hello-template";
         }
 
+        //@ResponseBody이면 viewresolver면 http응답에 바로 그대로 넘겨줘
     @GetMapping("hello-string") //api방식 중 문자로 하는 방식
     @ResponseBody //http에서 body부에 이 data를 직접 그대로 넣어주겠다
     public String helloString(@RequestParam("name") String name) {
         return "hello " + name;
     }
 
+    //근데 문자가 아닌 객체가 넘어오면 기본 값이 json방식으로 만들어서 넘기겠다
+    //name=spring
     @GetMapping("hello-api")
     @ResponseBody
     public Hello helloApi(@RequestParam("name") String name) {
