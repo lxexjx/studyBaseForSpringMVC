@@ -14,27 +14,29 @@ public class HelloController {
 
     @GetMapping("hello")
     public String hello(Model model){
-        model.addAttribute("data","hello");
-        return "hello";
+        model.addAttribute("data","hello");     //
+        return "hello";     //resources의 hello.html로 연결해라
+
     }
 
         @GetMapping("hello-mvc")
-        public String helloMvc(@RequestParam("name") String name, Model model) {
-            model.addAttribute("name", name);
+        public String helloMvc(@RequestParam("name") String name, Model model) {    //외부에서 파라미터를 받아 모델에 담아
+            model.addAttribute("name", name);   //파라미터에서 넘어온 이름을 넘겨
             return "hello-template";
         }
 
-    @GetMapping("hello-string")
-    @ResponseBody
+    @GetMapping("hello-string") //api방식 중 문자로 하는 방식
+    @ResponseBody //http에서 body부에 이 data를 직접 그대로 넣어주겠다
     public String helloString(@RequestParam("name") String name) {
         return "hello " + name;
     }
+
     @GetMapping("hello-api")
     @ResponseBody
     public Hello helloApi(@RequestParam("name") String name) {
-        Hello hello = new Hello();
-        hello.setName(name);
-        return hello;
+        Hello hello = new Hello();  //ctrl+shift+enter:마무리
+        hello.setName(name);    //파라미터로 넘어온 네임을 넣어줘
+        return hello;   //객체를 넘김
     }
     static class Hello {
         private String name;
@@ -45,4 +47,5 @@ public class HelloController {
             this.name = name;
         }
     }
+    //json방식: 키,벨류로 이루어짐.
     }
