@@ -12,7 +12,9 @@ import java.util.*;
 public class JdbcMemberRepository implements  MemberRepository{
     @Autowired
     public JdbcTemplateMemberRepository(DataSource dataSource) {
+
         jdbcTemplate = new JdbcTemplate(dataSource);
+
     }
     @Override
     public Member save(Member member) {

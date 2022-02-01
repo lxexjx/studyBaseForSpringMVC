@@ -8,6 +8,8 @@ public class JpaMemberRepository implements MemberRepository {
     public JpaMemberRepository(EntityManager em) {
         this.em = em;
     }
+
+
     public Member save(Member member) {
         em.persist(member);
         return member;
