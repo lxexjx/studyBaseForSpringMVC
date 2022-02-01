@@ -8,5 +8,6 @@ public interface SpringDataJpaMemberRepository extends JpaRepository<Member,Long
     @Override
     Optional<Member> findByName(String name);
 }
-/*
-/
+/*AOP
+
+ */

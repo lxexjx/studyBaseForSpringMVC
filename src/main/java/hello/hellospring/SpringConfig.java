@@ -4,9 +4,11 @@ import hello.hellospring.repository.JdbcMemberRepository;
 import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
 import hello.hellospring.service.MemberService;
+import main.java.hello.hellospring.aop.TimeTraceAop;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;
+import java.beans.BeanProperty;
 
 
 /*자바코드로 직접 스프링 빈 등록하는 방법*/
@@ -50,5 +52,10 @@ public class SpringConfig {
         //return new JpaMemberRepository(em);
 
 //    }
+
+    @Bean
+    public TimeTraceAop timeTraceAop(){
+        return  new TimeTraceAop();
+    }
 }
 

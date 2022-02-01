@@ -31,6 +31,17 @@ public class MemberService {
         validateDuplicateMember(member); //중복 회원 검증
         memberRepository.save(member);  //save호출
         return member.getId();  //id반환
+        //AOP가 필요한 상황: time을 한곳에 모아두고 원하는 곳에 적용
+//        long start = System.currentTimeMillis();
+//        try {
+//            validateDuplicateMember(member); //중복 회원 검증
+//            memberRepository.save(member);
+//            return member.getId();
+//        } finally {
+//            long finish = System.currentTimeMillis();
+//            long timeMs = finish - start;
+//            System.out.println("join " + timeMs + "ms");
+//        }
     }
     //중복 회원 검증
     private void validateDuplicateMember(Member member) {   //ctrl+t:extract메서드
