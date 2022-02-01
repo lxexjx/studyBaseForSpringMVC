@@ -31,10 +31,9 @@ public class MemberController {
     }
 
     @PostMapping(value = "/members/new")
-    public String create(MemberForm form) {
-
+    public String create(MemberForm form) { //memberForm.java에 setname을 통해서 name이 들어가
         Member member = new Member();
-        member.setName(form.getName());
+        member.setName(form.getName()); //getName으로 꺼내
 
         memberService.join(member);
 
