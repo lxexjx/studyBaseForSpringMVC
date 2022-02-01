@@ -1,7 +1,6 @@
 package test.java.hello.hellospring.service;
 
 import hello.hellospring.domain.Member;
-import hello.hellospring.repository.MemoryMemberRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,7 +9,7 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 @Transactional  //test실행하고 다 끝나면 rollback해줌->db에 넣었던 data사라지게 해줌. 실제 db에는 반영안됨
-class MemberServiceIntesgrationTest {
+class MemberServiceIntegrationTest {
 
     @Autowired MemberService memberService;
     @Autowired MemberRepository memberRepository;
